@@ -8,7 +8,11 @@
     $db = substr($url["path"], 1);
 
     $conn = new mysqli($server, $username, $password, $db);
-    
+    // Check connection
+    if ($conn->connect_error)
+    {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +32,9 @@
             
             $query = "SELECT * FROM Messages;"
             
-            $rows = mysql_query($query);
+            $result = $conn->query($query);
             
-            while ($row = mysql_fetch_assoc($rows))
+            while ($row = result->fetch_assoc())
             {
                 echo "<p>" . $row['text'] . "</p>";
             }
