@@ -24,6 +24,16 @@
             echo "<p>Username: $username</p>";
             echo "<p>Password: $password</p>";
             echo "<p>DB: $db</p>";
+            echo "<hr>";
+            
+            $query = "SELECT * FROM Messages;"
+            
+            $rows = mysql_query($query);
+            
+            while ($row = mysql_fetch_assoc($rows))
+            {
+                echo "<p>" . $row['text'] . "</p>";
+            }
         ?>
     </body>
 </html>
