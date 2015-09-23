@@ -2,6 +2,7 @@
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
     $server = $url["host"];
+    $port = $url["port"];
     $username = $url["user"];
     $password = $url["pass"];
     $db = substr($url["path"], 1);
@@ -19,8 +20,9 @@
         <?php
             echo "<h1>Database info:</h1>";
             echo "<p>Server: $server</p>";
+            echo "<p>Port: $port</p>";
             echo "<p>Username: $username</p>";
-            echo "<p>Password: $pasword</p>";
+            echo "<p>Password: $password</p>";
             echo "<p>DB: $db</p>";
         ?>
     </body>
